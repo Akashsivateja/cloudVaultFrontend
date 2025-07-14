@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - CloudVault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <span class="icon">🔑</span>
+        <h2>Welcome Back!</h2>
+        <p>Login to access your secure health dashboard.</p>
+      </div>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="your@example.com"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-submit">
+          <span>Login</span>
+          <div class="spinner hidden"></div>
+        </button>
+      </form>
+      <p class="auth-footer">
+        New user? <a href="register.html">Create an Account</a>
+      </p>
+    </div>
+    <div id="notification-container" class="notification-container"></div>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

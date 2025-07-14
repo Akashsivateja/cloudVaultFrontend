@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - CloudVault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="dashboard-page">
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="icon">☁️</span>
+          <h1 class="app-title">CloudVault</h1>
+        </div>
+        <div class="user-info">
+          <span id="userGreeting"></span>
+          <button id="logoutBtn" class="btn btn-outline">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <section class="dashboard-section input-forms">
+        <div class="glass-card form-card">
+          <h3 class="card-title">🩺 Add Daily Vitals</h3>
+          <form id="vitalsForm">
+            <div class="input-group">
+              <label for="bp">Blood Pressure (e.g., 120/80)</label>
+              <input
+                type="text"
+                id="bp"
+                placeholder="e.g., 120/80 mmHg"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="sugar">Sugar Level (mg/dL)</label>
+              <input
+                type="text"
+                id="sugar"
+                placeholder="e.g., 90 mg/dL"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="hr">Heart Rate (bpm)</label>
+              <input type="text" id="hr" placeholder="e.g., 75 bpm" required />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span>Submit Vitals</span>
+              <div class="spinner hidden"></div>
+            </button>
+          </form>
+        </div>
+
+        <div class="glass-card form-card">
+          <h3 class="card-title">📁 Upload Medical Report</h3>
+          <form id="fileForm" enctype="multipart/form-data">
+            <div class="input-group">
+              <label for="file">Select File</label>
+              <input type="file" id="file" required />
+            </div>
+            <button type="submit" class="btn btn-secondary">
+              <span>Upload File</span>
+              <div class="spinner hidden"></div>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard-section data-display">
+        <div class="glass-card data-card">
+          <h3 class="card-title">📈 Your Vitals Trends</h3>
+          <div class="chart-container">
+            <h4>Blood Pressure Over Time</h4>
+            <canvas id="bpChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h4>Sugar Level Over Time</h4>
+            <canvas id="sugarChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h4>Heart Rate Over Time</h4>
+            <canvas id="hrChart"></canvas>
+          </div>
+        </div>
+
+        <div class="glass-card data-card">
+          <h3 class="card-title">🩺 Your Recent Vitals</h3>
+          <div id="recordsList" class="data-list">
+            <p class="loading-text">Loading vitals...</p>
+          </div>
+        </div>
+
+        <div class="glass-card data-card">
+          <h3 class="card-title">📂 Your Uploaded Files</h3>
+          <div id="filesList" class="data-list">
+            <p class="loading-text">Loading files...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
